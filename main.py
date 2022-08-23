@@ -8,16 +8,12 @@ def create_file_list(folder):
     merget_file_list = []  # Создаем список для хранения содержимого файлов
     for file in file_list:
         with open(folder + "/" + file, encoding='utf-8') as temp_file:  # Поочередно считываем файлы
-            # Добавляем в список название файла, значение для числа строк и список для содержимого файла
             merget_file_list.append([file, 0, []])
-            print(merget_file_list)
-            print(temp_file)
             for line in temp_file:
                 merget_file_list[-1][2].append(line.strip())  # Добавляем в список содержимое файла построчно
                 merget_file_list[-1][1] += 1
                 # Посчитаем кольчество строк
     # Отсортированный по значению числа строк список
-    print(merget_file_list)
     return sorted(merget_file_list, key=lambda x: x[1], reverse=False)
 
 
